@@ -23,14 +23,14 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-      working-directory: ./node-app
+      working-directory: node-app
 
     - name: Run build script
       run: npm run build
-      working-directory: ./node-app
+      working-directory: node-app
 
     - name: Build Docker image
-      run: docker build -t nodejs-sample-app ./node-app
+      run: docker build -t nodejs-sample-app node-app
 
     - name: Run Docker container
       run: docker run -d -p 3000:3000 --name nodejs-sample-app nodejs-sample-app
