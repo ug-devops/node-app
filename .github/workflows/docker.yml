@@ -21,22 +21,27 @@ jobs:
       with:
         node-version: '18'
 
-    - name: Create artifacts directory
-      run: mkdir -p ./node-app/artifacts
-      working-directory: /home/runner/work/node-app/node-app
-
     - name: Install dependencies
       run: npm install
-      working-directory: /home/runner/work/node-app/node-app
+      working-directory: ./node-app
 
     - name: Run build script
       run: npm run build
-      working-directory: /home/runner/work/node-app/node-app
+      working-directory: ./node-app
+
+    - name: Create artifacts directory
+      run: mkdir -p ./node-app/artifacts
+      working-directory: ./node-app
+
+    - name: Move build artifacts
+      run: cp -r ./node-app/build/* ./node-app/artifacts/
+      working-directory: ./node-app
 
     - name: Build Docker image
       run: docker build -t nodejs-sample-app .
-      working-directory: /home/runner/work/node-app/node-app/artifacts
+      working-directory: ./node-app/artifacts
 
     - name: Run Docker container
       run: docker run -d -p 3000:3000 --name nodejs-sample-app nodejs-sample-app
+      working-directory: ./node-app/artifacts
 
