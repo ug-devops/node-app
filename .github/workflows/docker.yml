@@ -24,6 +24,10 @@ jobs:
       with:
         node-version: '18'
 
+    - name: Create artifacts directory
+      run: mkdir -p /home/usman-saleem/artifacts
+      # This step creates the directory where the build files will be copied.
+
     - name: Install dependencies
       run: npm install
       working-directory: /home/runner/work/node-app/node-app
