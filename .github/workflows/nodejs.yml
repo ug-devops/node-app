@@ -1,4 +1,4 @@
-name: Build and Run Docker Container
+name: Node.js CI
 
 on:
   push:
@@ -25,13 +25,16 @@ jobs:
       run: npm install
       working-directory: node-app
 
-    - name: Run build script
-      run: npm run build
+    - name: Run tests
+      run: npm test
       working-directory: node-app
 
     - name: Build Docker image
-      run: docker build -t nodejs-sample-app node-app
+      run: docker build -t hello-world-app ./node-app
 
     - name: Run Docker container
-      run: docker run -d -p 3000:3000 --name nodejs-sample-app nodejs-sample-app
+      run: |
+        docker run -d -p 3000:3000 --name hello-world-app hello-world-app
+        sleep 10
+        curl -I http://localhost:3000
 

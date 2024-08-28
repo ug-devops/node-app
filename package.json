@@ -1,11 +1,11 @@
 {
-  "name": "nodejs-sample-app",
+  "name": "hello-world-app",
   "version": "1.0.0",
+  "description": "A simple Hello World Node.js application",
+  "main": "app.js",
   "scripts": {
-    "build": "echo 'Build script not needed for this example'"
+    "start": "node app.js"
   },
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+  "dependencies": {}
 }
 
