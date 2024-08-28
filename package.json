@@ -1,13 +1,10 @@
 {
   "name": "nodejs-sample-app",
   "version": "1.0.0",
-  "description": "A simple Node.js application",
-  "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "build": "cp -r . /home/usman-saleem/artifacts"
+    "build": "mkdir -p ./artifacts && cp -r ./build/* ./artifacts/"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+  }
 }
+

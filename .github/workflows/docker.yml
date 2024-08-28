@@ -29,13 +29,6 @@ jobs:
       run: npm run build
       working-directory: /home/runner/work/node-app/node-app
 
-    - name: Create artifacts directory
-      run: mkdir -p /home/runner/work/node-app/node-app/artifacts
-
-    - name: Move build artifacts
-      run: cp -r /home/runner/work/node-app/node-app/build/* /home/runner/work/node-app/node-app/artifacts/
-      working-directory: /home/runner/work/node-app/node-app
-
     - name: Build Docker image
       run: docker build -t nodejs-sample-app .
       working-directory: /home/runner/work/node-app/node-app/artifacts
