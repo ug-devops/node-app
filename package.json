@@ -2,9 +2,10 @@
   "name": "nodejs-sample-app",
   "version": "1.0.0",
   "scripts": {
-    "build": "mkdir -p ./artifacts && cp -r ./* ./artifacts/"
+    "build": "echo 'Build script not needed for this example'"
   },
   "dependencies": {
+    "express": "^4.17.1"
   }
 }
 
